@@ -192,7 +192,7 @@
  1920                 Player2% = Player2% + 1
  1930               ENDIF
  1940               IF Player2% + Player1% = 10 THEN
- 1950                 PRINT TAB(10,24) "Press R to Reset!"
+ 1950                 PRINT TAB(12,3) "Press R to Reset!"
  1960               ENDIF
  1970             ELSE
  1980               PROC_TogglePlayer
@@ -256,93 +256,94 @@
  2560 PROC_Draw_Scores
  2570 FOR I%=0 TO 19
  2580   PROC_DrawCard(I%,Cover1$,Cover2$,Cover3$,Cover4$)
- 2590
- 2600 NEXT
- 2610 FOR I%=3 TO 23
- 2620   PRINT TAB(8, I%) W$;
- 2630   PRINT TAB(16, I%) W$;
- 2640   PRINT TAB(24, I%) W$;
- 2650   PRINT TAB(32, I%) W$;
- 2660 NEXT
- 2670 PROC_RandomiseCards
- 2680 ENDPROC
- 2690
- 2700 DEF PROC_DrawCard(N%, Row0$, Row1$, Row2$, Row3$)
- 2710 X% = FN_CardNumberToX(N%)
- 2720 Y% = FN_CardNumberToY(N%)
- 2730 PRINT TAB(X%, Y%)    Row0$
- 2740 PRINT TAB(X%, Y%+1)  Row1$
- 2750 PRINT TAB(X%, Y%+2)  Row2$
- 2760 PRINT TAB(X%, Y%+3)  Row3$
- 2770 ENDPROC
- 2780
- 2790 DEF FN_CardNumberToX(N%)
- 2800 =(8*(N%MOD5))
- 2810
- 2820 DEF FN_CardNumberToY(N%)
- 2830 =4+(5*(N%DIV5))
- 2840
- 2850 DEF PROC_DrawSelect(N%)
- 2860 X% = FN_CardNumberToX(N%)
- 2870 Y% = FN_CardNumberToY(N%)
- 2880 C$ = CHR$(RND(5) + 144)
- 2890 PRINT TAB(X%, Y%-1) C$CHR$(185)CHR$(185)CHR$(185)CHR$(185)CHR$(185)CHR$(185);
- 2900 PRINT TAB(X%, Y%+4) C$CHR$(185)CHR$(185)CHR$(185)CHR$(185)CHR$(185)CHR$(185);
- 2910 ENDPROC
- 2920 DEF PROC_UnDrawSelect(N%)
- 2930 X% = FN_CardNumberToX(N%)
- 2940 Y% = FN_CardNumberToY(N%)
- 2950 PRINT TAB(X%, Y%-1) CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160);
- 2960 PRINT TAB(X%, Y%+4) CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160);
- 2970 ENDPROC
- 2980 DEF PROC_DrawActiveCards
- 2990 PRIVATE Frame%
- 3000 PRIVATE LastTime%
- 3010 IF TIME - LastTime% > 80 THEN
- 3020   LastTime% = TIME
- 3030   IF Frame% = 0 THEN
- 3040     Frame% = 4
- 3050   ELSE
- 3060     Frame% = 0
- 3070   ENDIF
- 3080   FOR I%=0 TO 20
- 3090     IF CardActive(I%)=TRUE THEN
- 3100       Card% = CardValue(I%)
- 3110       PROC_DrawCard(I%, Cards$(Card%,0+Frame%),Cards$(Card%,1+Frame%),Cards$(Card%,2+Frame%),Cards$(Card%,3+Frame%))
- 3120     ENDIF
- 3130   NEXT
- 3140
- 3150 ENDIF
- 3160 ENDPROC
- 3170 DEF PROC_SoundEffect
- 3180 SOUND 0, -2, 100, 2
- 3190 WAIT 1
- 3200 SOUND 1, -2, 160, 1
- 3210 SOUND 2, -2, 170, 1
- 3220 ENDPROC
- 3230 DEF PROC_SoundEffect_Correct
- 3240 SOUND 1, -2, 188, 1
- 3250 SOUND 2, -2, 196, 1
- 3260 SOUND 3, -2, 178, 1
- 3270 WAIT 4
- 3280 SOUND 1, -2, 240, 2
- 3290 SOUND 2, -2, 230, 2
- 3300 SOUND 3, -2, 220, 2
- 3310 SOUND 1, -2, 200, 1
- 3320 SOUND 2, -2, 220, 1
- 3330 SOUND 3, -2, 210, 1
- 3340
- 3350 ENDPROC
- 3360 DEF PROC_RandomiseCards
+ 2590 NEXT
+ 2600 FOR I%=3 TO 23
+ 2610   PRINT TAB(8, I%) W$;
+ 2620   PRINT TAB(16, I%) W$;
+ 2630   PRINT TAB(24, I%) W$;
+ 2640   PRINT TAB(32, I%) W$;
+ 2650 NEXT
+ 2660 PROC_RandomiseCards
+ 2670 ENDPROC
+ 2680
+ 2690 DEF PROC_DrawCard(N%, Row0$, Row1$, Row2$, Row3$)
+ 2700 X% = FN_CardNumberToX(N%)
+ 2710 Y% = FN_CardNumberToY(N%)
+ 2720 PRINT TAB(X%, Y%)    Row0$
+ 2730 PRINT TAB(X%, Y%+1)  Row1$
+ 2740 PRINT TAB(X%, Y%+2)  Row2$
+ 2750 PRINT TAB(X%, Y%+3)  Row3$
+ 2760 ENDPROC
+ 2770
+ 2780 DEF FN_CardNumberToX(N%)
+ 2790 =(8*(N%MOD5))
+ 2800
+ 2810 DEF FN_CardNumberToY(N%)
+ 2820 =4+(5*(N%DIV5))
+ 2830
+ 2840 DEF PROC_DrawSelect(N%)
+ 2850 X% = FN_CardNumberToX(N%)
+ 2860 Y% = FN_CardNumberToY(N%)
+ 2870 C$ = CHR$(RND(5) + 144)
+ 2880 PRINT TAB(X%, Y%-1) C$CHR$(185)CHR$(185)CHR$(185)CHR$(185)CHR$(185)CHR$(185);
+ 2890 PRINT TAB(X%, Y%+4) C$CHR$(185)CHR$(185)CHR$(185)CHR$(185)CHR$(185)CHR$(185);
+ 2900 ENDPROC
+ 2910 DEF PROC_UnDrawSelect(N%)
+ 2920 X% = FN_CardNumberToX(N%)
+ 2930 Y% = FN_CardNumberToY(N%)
+ 2940 PRINT TAB(X%, Y%-1) CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160);
+ 2950 PRINT TAB(X%, Y%+4) CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160)CHR$(160);
+ 2960 ENDPROC
+ 2970 DEF PROC_DrawActiveCards
+ 2980 PRIVATE Frame%
+ 2990 PRIVATE LastTime%
+ 3000 IF TIME - LastTime% > 80 THEN
+ 3010   LastTime% = TIME
+ 3020   IF Frame% = 0 THEN
+ 3030     Frame% = 4
+ 3040   ELSE
+ 3050     Frame% = 0
+ 3060   ENDIF
+ 3070   FOR I%=0 TO 20
+ 3080     IF CardActive(I%)=TRUE THEN
+ 3090       Card% = CardValue(I%)
+ 3100       PROC_DrawCard(I%, Cards$(Card%,0+Frame%),Cards$(Card%,1+Frame%),Cards$(Card%,2+Frame%),Cards$(Card%,3+Frame%))
+ 3110     ENDIF
+ 3120   NEXT
+ 3130
+ 3140 ENDIF
+ 3150 ENDPROC
+ 3160 DEF PROC_SoundEffect
+ 3170 SOUND 0, -2, 100, 2
+ 3180 WAIT 1
+ 3190 SOUND 1, -2, 160, 1
+ 3200 SOUND 2, -2, 170, 1
+ 3210 ENDPROC
+ 3220 DEF PROC_SoundEffect_Correct
+ 3230 SOUND 1, -2, 188, 1
+ 3240 SOUND 2, -2, 196, 1
+ 3250 SOUND 3, -2, 178, 1
+ 3260 WAIT 4
+ 3270 SOUND 1, -2, 240, 2
+ 3280 SOUND 2, -2, 230, 2
+ 3290 SOUND 3, -2, 220, 2
+ 3300 SOUND 1, -2, 200, 1
+ 3310 SOUND 2, -2, 220, 1
+ 3320 SOUND 3, -2, 210, 1
+ 3330
+ 3340 ENDPROC
+ 3350 DEF PROC_RandomiseCards
+ 3360
  3370 FOR I%=0 TO 20
  3380   CardValue(I%) = I%MOD10
- 3390 NEXT
- 3400 FOR I%=0 TO 21
- 3410   A% = RND(20)-1
- 3420   B% = RND(20)-1
- 3430   IF A% = B% THEN I% = I% -1
- 3440   Temp% = CardValue(B%)
- 3450   CardValue(B%) = CardValue(A%)
- 3460   CardValue(A%) = Temp%
- 3470 NEXT
- 3480 ENDPROC
+ 3390   CardActive(I%) = FALSE
+ 3400 NEXT
+ 3410 FOR I%=0 TO 21
+ 3420   A% = RND(20)-1
+ 3430   B% = RND(20)-1
+ 3440   IF A% = B% THEN I% = I% -1
+ 3450   Temp% = CardValue(B%)
+ 3460   CardValue(B%) = CardValue(A%)
+ 3470   CardValue(A%) = Temp%
+ 3480 NEXT
+ 3490 ENDPROC
