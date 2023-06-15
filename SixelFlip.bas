@@ -197,7 +197,7 @@
  1970             ELSE
  1980               PROC_TogglePlayer
  1990               PROC_SoundEffect
- 2000               WAIT 80
+ 2000               WAIT 150
  2010               CardActive(Selected%) = FALSE
  2020               CardActive(FirstChoice%) = FALSE
  2030               PROC_DrawCard(Selected%,Cover1$,Cover2$,Cover3$,Cover4$)
