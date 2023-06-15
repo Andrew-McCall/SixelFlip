@@ -13,22 +13,29 @@ R, Restarts the game once all pairs have been found.
 The highlighted name in the bottom shows the current player.
 *Cursor is the checkered line above and below a card. It's colour is random and irrelevant
 ## Images
+
 Start
+
 ![All Cards are covered, Cursor starts in top right](https://i.imgur.com/25J6rgl.png)
 
 Two different Selected Cards
+
 ![Two different random cards are different](https://i.imgur.com/DBwsEev.png)
 
 All Cards are hidden again. Player 2 is now green.
+
 ![Please Email me if anyone actually uses the alt for good](https://i.imgur.com/DD1hTRa.png)
 
 Mid-game Image
+
 ![Most cards are shown](https://i.imgur.com/DE7HEUu.png)
 
 Finished Game with all cards revealed and on Frame 1*
+
 ![All cards are visible and restart instruction is onscreen](https://i.imgur.com/JQWTlKT.png)
 
 Finished Game with all cards revealed and on Frame 2*
+
 ![All cards are visible with different images and restart instruction is onscreen](https://i.imgur.com/A7vvABO.png)
 
 The frames alternate every second during the whole game.
